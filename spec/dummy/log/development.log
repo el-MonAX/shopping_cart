@@ -1,0 +1,115 @@
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:14
+  [1m[35m (86.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:14
+  [1m[35m (63.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:14
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:14
+Migrating to CreateShoppingCartAddresses (20180522203530)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:14
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "shopping_cart_addresses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "address" varchar, "city" varchar, "country" varchar, "zip" varchar, "phone" varchar, "address_type" varchar, "user_id" integer, "order_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_06187f7962"
+FOREIGN KEY ("order_id")
+  REFERENCES "shopping_cart_orders" ("id")
+)[0m
+  ↳ /home/max/workspace/shopping_cart/db/migrate/20180522203530_create_shopping_cart_addresses.rb:6
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_shopping_cart_addresses_on_order_id" ON "shopping_cart_addresses" ("order_id")[0m
+  ↳ /home/max/workspace/shopping_cart/db/migrate/20180522203530_create_shopping_cart_addresses.rb:6
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180522203530"]]
+  ↳ bin/rails:14
+  [1m[35m (149.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:14
+Migrating to CreateShoppingCartBillings (20180522204115)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:14
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "shopping_cart_billings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ /home/max/workspace/shopping_cart/db/migrate/20180522204115_create_shopping_cart_billings.rb:6
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180522204115"]]
+  ↳ bin/rails:14
+  [1m[35m (64.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:14
+Migrating to CreateShoppingCartShippings (20180522204128)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:14
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "shopping_cart_shippings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ /home/max/workspace/shopping_cart/db/migrate/20180522204128_create_shopping_cart_shippings.rb:6
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180522204128"]]
+  ↳ bin/rails:14
+  [1m[35m (62.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:14
+Migrating to CreateShoppingCartCoupons (20180522204144)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:14
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "shopping_cart_coupons" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "code" varchar, "discount" decimal, "active" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ /home/max/workspace/shopping_cart/db/migrate/20180522204144_create_shopping_cart_coupons.rb:6
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180522204144"]]
+  ↳ bin/rails:14
+  [1m[35m (64.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:14
+Migrating to CreateShoppingCartCreditCards (20180522204201)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:14
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "shopping_cart_credit_cards" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "number" varchar, "name_on_card" varchar, "month_year" varchar, "cvv" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ /home/max/workspace/shopping_cart/db/migrate/20180522204201_create_shopping_cart_credit_cards.rb:6
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180522204201"]]
+  ↳ bin/rails:14
+  [1m[35m (62.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:14
+Migrating to CreateShoppingCartDeliveries (20180522204215)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:14
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "shopping_cart_deliveries" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "time" varchar, "price" decimal, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ /home/max/workspace/shopping_cart/db/migrate/20180522204215_create_shopping_cart_deliveries.rb:6
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180522204215"]]
+  ↳ bin/rails:14
+  [1m[35m (64.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:14
+Migrating to CreateShoppingCartOrders (20180522204224)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:14
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "shopping_cart_orders" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "number" varchar, "status" integer, "user_id" integer, "coupon_id" integer, "delivery_id" integer, "credit_card_id" integer, "completed_at" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_f7aed0e95c"
+FOREIGN KEY ("coupon_id")
+  REFERENCES "shopping_cart_coupons" ("id")
+, CONSTRAINT "fk_rails_2295aeb9b0"
+FOREIGN KEY ("delivery_id")
+  REFERENCES "shopping_cart_deliveries" ("id")
+, CONSTRAINT "fk_rails_54bd858ec3"
+FOREIGN KEY ("credit_card_id")
+  REFERENCES "shopping_cart_credit_cards" ("id")
+)[0m
+  ↳ /home/max/workspace/shopping_cart/db/migrate/20180522204224_create_shopping_cart_orders.rb:6
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_shopping_cart_orders_on_coupon_id" ON "shopping_cart_orders" ("coupon_id")[0m
+  ↳ /home/max/workspace/shopping_cart/db/migrate/20180522204224_create_shopping_cart_orders.rb:6
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_shopping_cart_orders_on_delivery_id" ON "shopping_cart_orders" ("delivery_id")[0m
+  ↳ /home/max/workspace/shopping_cart/db/migrate/20180522204224_create_shopping_cart_orders.rb:6
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_shopping_cart_orders_on_credit_card_id" ON "shopping_cart_orders" ("credit_card_id")[0m
+  ↳ /home/max/workspace/shopping_cart/db/migrate/20180522204224_create_shopping_cart_orders.rb:6
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180522204224"]]
+  ↳ bin/rails:14
+  [1m[35m (67.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:14
+Migrating to CreateShoppingCartOrderItems (20180522204237)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:14
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "shopping_cart_order_items" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "quantity" integer, "product_id" integer, "order_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_14dfb344d2"
+FOREIGN KEY ("order_id")
+  REFERENCES "shopping_cart_orders" ("id")
+)[0m
+  ↳ /home/max/workspace/shopping_cart/db/migrate/20180522204237_create_shopping_cart_order_items.rb:6
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_shopping_cart_order_items_on_order_id" ON "shopping_cart_order_items" ("order_id")[0m
+  ↳ /home/max/workspace/shopping_cart/db/migrate/20180522204237_create_shopping_cart_order_items.rb:6
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180522204237"]]
+  ↳ bin/rails:14
+  [1m[35m (71.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:14
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:14
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:14
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-05-22 21:11:49.128454"], ["updated_at", "2018-05-22 21:11:49.128454"]]
+  ↳ bin/rails:14
+  [1m[35m (51.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:14
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:14

@@ -1,0 +1,9 @@
+en:
+  coupon_applied: 'Coupon applied'
+  coupon_invalid: 'Invalid coupon'
+  order_in_queue: 'Waiting for processing'
+  order_in_delivery: 'In delivery'
+  order_delivered: 'Delivered'
+  order_canceled: 'Canceled'
+  order_all: 'All'
+  checkout_warning: 'Please choose delivery mehod.'

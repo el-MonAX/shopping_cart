@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 module ShoppingCart
-  #
+  # CreditCard
   class CreditCard < ApplicationRecord
     has_many :orders, dependent: :destroy
 
@@ -11,6 +13,6 @@ module ShoppingCart
     validates :number, :cvv, numericality: { only_integer: true }
 
     validates :name_on_card, format: /\A[a-zA-Z]*\s*[a-zA-Z]*\z/
-    validates :month_year,   format: /\A(0[1-9]|10|11|12)\/\d\d\z/
+    validates :month_year, format: %r{/\A(0[1-9]|10|11|12)\/\d\d\z/}
   end
 end

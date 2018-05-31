@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require_dependency 'shopping_cart/application_controller'
 
 module ShoppingCart
-  #
+  # AddressesController
   class AddressesController < ApplicationController
     def index
       @addresses = AddressesForm.new(user_id: current_user.id)

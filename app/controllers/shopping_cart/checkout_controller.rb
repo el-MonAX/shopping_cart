@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require_dependency 'shopping_cart/application_controller'
 
 module ShoppingCart
-  #
+  # CheckoutController
   class CheckoutController < ApplicationController
     include Wicked::Wizard
 
@@ -80,7 +82,7 @@ module ShoppingCart
 
     def update_delivery
       current_order.update_attributes(order_params)
-      flash[:warning] = I18n.t(:checkout_warning) if current_order.delivery_id.nil?
+      flash[:warning] = 'Please choose delivery mehod.' if current_order.delivery_id.nil?
     end
 
     def update_payment

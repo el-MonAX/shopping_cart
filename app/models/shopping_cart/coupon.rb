@@ -1,8 +1,9 @@
-module ShoppingCart
-  #
-  class Coupon < ApplicationRecord
-    belongs_to :order, optional: true
+# frozen_string_literal: true
 
+module ShoppingCart
+  # Coupon
+  class Coupon < ApplicationRecord
+    has_many :orders, dependent: :nullify
     before_create :activate
 
     validates :code, presence: true, uniqueness: true

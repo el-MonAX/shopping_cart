@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require_dependency 'shopping_cart/application_controller'
 
 module ShoppingCart
-  #
+  # CartsController
   class CartsController < ApplicationController
     def show
       @order = Order.new(order_item_ids: session[:order_item_ids],

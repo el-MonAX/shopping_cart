@@ -1,5 +1,4 @@
-require 'English'
-$LOAD_PATH.push File.expand_path('lib', __dir__)
+$:.push File.expand_path("../lib", __FILE__)
 
 # Maintain your gem's version:
 require 'shopping_cart/version'
@@ -19,20 +18,26 @@ Gem::Specification.new do |s|
                 'README.md']
   s.test_files = Dir['spec/**/*']
 
-  s.add_dependency 'cancancan', '~> 2.0'
+  s.add_dependency "rails", "~> 5.1.5"
+
+  s.add_development_dependency 'rspec-rails'
+  s.add_development_dependency 'capybara'
+  s.add_development_dependency 'factory_bot_rails'
+
+  s.add_dependency 'cancancan'
   s.add_dependency 'country_select', '~> 3.1', '>= 3.1.1'
   s.add_dependency 'devise', '~> 4.4', '>= 4.4.1'
   s.add_dependency 'haml-rails', '~> 1.0.0'
-  s.add_dependency 'rails', '~> 5.2.0'
+
   s.add_dependency 'rails-i18n', '~> 5.1'
   s.add_dependency 'simple_form', '~> 3.5'
   s.add_dependency 'wicked', '~> 1.3', '>= 1.3.2'
-
-  s.add_development_dependency 'capybara', '~> 2.15', '>= 2.15.2'
-  s.add_development_dependency 'database_cleaner', '~> 1.6', '>= 1.6.1'
-  s.add_development_dependency 'factory_bot_rails', '~> 4.8', '>= 4.8.2'
-  s.add_development_dependency 'rails-controller-testing', '~> 1.0', '>= 1.0.2'
-  s.add_development_dependency 'rspec-rails', '~> 3.7', '>= 3.7.2'
-  s.add_development_dependency 'shoulda-matchers', '~> 3.1', '>= 3.1.2'
-  s.add_development_dependency 'sqlite3'
+  #
+  # s.add_development_dependency 'capybara', '~> 2.15', '>= 2.15.2'
+  # s.add_development_dependency 'database_cleaner', '~> 1.6', '>= 1.6.1'
+  # s.add_development_dependency 'factory_bot_rails', '~> 4.8', '>= 4.8.2'
+  # s.add_development_dependency 'rails-controller-testing', '~> 1.0', '>= 1.0.2'
+  # s.add_development_dependency 'rspec-rails', '~> 3.7', '>= 3.7.2'
+  # s.add_development_dependency 'shoulda-matchers', '~> 3.1', '>= 3.1.2'
+  # s.add_development_dependency 'sqlite3'
 end

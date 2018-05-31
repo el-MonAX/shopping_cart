@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 module ShoppingCart
+  # AddressesForm
   class AddressesForm
     include ActiveModel::Model
 

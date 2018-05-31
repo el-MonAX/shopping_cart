@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require_dependency 'shopping_cart/application_controller'
 
 module ShoppingCart
-  #
+  # OrderItemsController
   class OrderItemsController < ApplicationController
     def create
       @order_item = OrderItem.create(order_item_params)

@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require_dependency 'shopping_cart/application_controller'
 
 module ShoppingCart
-  #
+  # OrdersController
   class OrdersController < ApplicationController
     before_action :authenticate_user!
 

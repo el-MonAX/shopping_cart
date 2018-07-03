@@ -7,10 +7,10 @@ module ShoppingCart
   mattr_accessor :product_class
 
   def self.user_class
-    @@user_class.constantize
+    @@user_class
   end
 
   def self.product_class
-    @@product_class.constantize
+    @@product_class
   end
 end

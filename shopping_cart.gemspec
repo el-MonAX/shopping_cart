@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
                 'README.md']
   s.test_files = Dir['spec/**/*']
 
-  s.add_dependency "rails", "~> 5.1.5"
+  s.add_dependency 'rails'
 
   s.add_development_dependency 'rspec-rails'
   s.add_development_dependency 'capybara'
@@ -34,11 +34,8 @@ Gem::Specification.new do |s|
   s.add_dependency 'simple_form', '~> 3.5'
   s.add_dependency 'wicked', '~> 1.3', '>= 1.3.2'
   #
-  # s.add_development_dependency 'capybara', '~> 2.15', '>= 2.15.2'
-  # s.add_development_dependency 'database_cleaner', '~> 1.6', '>= 1.6.1'
-  # s.add_development_dependency 'factory_bot_rails', '~> 4.8', '>= 4.8.2'
-  # s.add_development_dependency 'rails-controller-testing', '~> 1.0', '>= 1.0.2'
-  # s.add_development_dependency 'rspec-rails', '~> 3.7', '>= 3.7.2'
-  # s.add_development_dependency 'shoulda-matchers', '~> 3.1', '>= 3.1.2'
-  # s.add_development_dependency 'sqlite3'
+  s.add_development_dependency 'database_cleaner', '~> 1.6', '>= 1.6.1'
+  s.add_development_dependency 'rails-controller-testing', '~> 1.0', '>= 1.0.2'
+  s.add_development_dependency 'shoulda-matchers', '~> 3.1', '>= 3.1.2'
+  s.add_development_dependency 'sqlite3'
 end

@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rspec-rails'
   s.add_development_dependency 'capybara'
   s.add_development_dependency 'factory_bot_rails'
+  s.add_development_dependency "pg"
 
   s.add_dependency 'cancancan'
   s.add_dependency 'country_select', '~> 3.1', '>= 3.1.1'

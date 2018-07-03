@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 #
-class CreateShoppingCartOrders < ActiveRecord::Migration[5.2]
+class CreateShoppingCartOrders < ActiveRecord::Migration[5.1]
   def change
     create_table :shopping_cart_orders do |t|
       t.string :number

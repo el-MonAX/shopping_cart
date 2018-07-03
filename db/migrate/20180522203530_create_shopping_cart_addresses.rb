@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 #
-class CreateShoppingCartAddresses < ActiveRecord::Migration[5.2]
+class CreateShoppingCartAddresses < ActiveRecord::Migration[5.1]
   def change
     create_table :shopping_cart_addresses do |t|
       t.string :first_name
@@ -14,7 +14,7 @@ class CreateShoppingCartAddresses < ActiveRecord::Migration[5.2]
       t.string :address_type
 
       t.integer :user_id, foreign_key: true
-      t.references :order, foreign_key: { to_table: :shopping_cart_orders }
+      # t.references :order, foreign_key: { to_table: :shopping_cart_orders }
 
       t.timestamps
     end

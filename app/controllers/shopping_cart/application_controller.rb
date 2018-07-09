@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 module ShoppingCart
-  class ApplicationController < ActionController::Base
+  # ApplicationController
+  class ApplicationController < ::ApplicationController
     protect_from_forgery with: :exception
   end
 end

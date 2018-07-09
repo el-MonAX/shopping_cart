@@ -1,7 +1,7 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :shopping_cart_order, class: 'ShoppingCart::Order' do
-    user
-
     trait :in_progress do
       after(:create) do |order|
         order.status = 'in_progress'

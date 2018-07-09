@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_22_204237) do
+ActiveRecord::Schema.define(version: 2018_07_05_125253) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "products", force: :cascade do |t|
+    t.decimal "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "shopping_cart_addresses", force: :cascade do |t|
     t.string "first_name"
@@ -22,15 +31,10 @@ ActiveRecord::Schema.define(version: 2018_05_22_204237) do
     t.string "phone"
     t.string "address_type"
     t.integer "user_id"
-    t.integer "order_id"
+    t.bigint "order_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["order_id"], name: "index_shopping_cart_addresses_on_order_id"
-  end
-
-  create_table "shopping_cart_billings", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "shopping_cart_coupons", force: :cascade do |t|
@@ -61,7 +65,7 @@ ActiveRecord::Schema.define(version: 2018_05_22_204237) do
   create_table "shopping_cart_order_items", force: :cascade do |t|
     t.integer "quantity"
     t.integer "product_id"
-    t.integer "order_id"
+    t.bigint "order_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["order_id"], name: "index_shopping_cart_order_items_on_order_id"
@@ -71,9 +75,9 @@ ActiveRecord::Schema.define(version: 2018_05_22_204237) do
     t.string "number"
     t.integer "status"
     t.integer "user_id"
-    t.integer "coupon_id"
-    t.integer "delivery_id"
-    t.integer "credit_card_id"
+    t.bigint "coupon_id"
+    t.bigint "delivery_id"
+    t.bigint "credit_card_id"
     t.datetime "completed_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -82,9 +86,26 @@ ActiveRecord::Schema.define(version: 2018_05_22_204237) do
     t.index ["delivery_id"], name: "index_shopping_cart_orders_on_delivery_id"
   end
 
-  create_table "shopping_cart_shippings", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "shopping_cart_addresses", "shopping_cart_orders", column: "order_id"
+  add_foreign_key "shopping_cart_order_items", "shopping_cart_orders", column: "order_id"
+  add_foreign_key "shopping_cart_orders", "shopping_cart_coupons", column: "coupon_id"
+  add_foreign_key "shopping_cart_orders", "shopping_cart_credit_cards", column: "credit_card_id"
+  add_foreign_key "shopping_cart_orders", "shopping_cart_deliveries", column: "delivery_id"
 end

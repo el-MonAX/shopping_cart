@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :shopping_cart_delivery, class: 'ShoppingCart::Delivery' do
     sequence(:name) { |i| "Delivery#{i}" }

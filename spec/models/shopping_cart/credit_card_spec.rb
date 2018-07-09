@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 module ShoppingCart
@@ -13,7 +15,7 @@ module ShoppingCart
     it { expect(subject).to validate_length_of(:name_on_card).is_at_most(50) }
 
     it { expect(subject).to validate_numericality_of(:cvv) }
-    it { expect(subject).to allow_value('03/18').for(:month_year) }
+    it { expect(subject).to allow_value('05/18').for(:month_year) }
     it { expect(subject).to allow_value('12/24').for(:month_year) }
     it { expect(subject).not_to allow_value('00/18').for(:month_year) }
     it { expect(subject).not_to allow_value('13/18').for(:month_year) }

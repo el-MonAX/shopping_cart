@@ -14,7 +14,7 @@ class CreateShoppingCartAddresses < ActiveRecord::Migration[5.1]
       t.string :address_type
 
       t.integer :user_id, foreign_key: true
-      # t.references :order, foreign_key: { to_table: :shopping_cart_orders }
+      t.references :order, foreign_key: { to_table: :shopping_cart_orders }
 
       t.timestamps
     end
